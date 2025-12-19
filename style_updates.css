@@ -1,0 +1,95 @@
+/* ... previous styles ... */
+
+/* Question Navigator */
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.question-navigator {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 2px 15px 2px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.question-navigator::-webkit-scrollbar {
+    height: 4px;
+}
+
+.question-navigator::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.q-nav-pill {
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.q-nav-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.q-nav-pill.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 10px var(--primary-glow);
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.q-nav-pill.done {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+/* Conflict resolution: Active overrides Done color but keeps border? 
+   Actually, usually Active is just 'current'. 
+   Let's make sure Active styling sits on top of Done if needed. */
+.q-nav-pill.done.active {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+/* Footer Adjustments */
+.quiz-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Spreads chart and buttons */
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure buttons don't shrink too much */
+.quiz-footer button {
+    white-space: nowrap;
+}
